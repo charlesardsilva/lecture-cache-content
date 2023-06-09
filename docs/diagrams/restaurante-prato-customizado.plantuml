@@ -1,0 +1,21 @@
+@startuml
+
+skin rose
+
+component "Garçom" as ga
+component "Chef" as chef
+actor "Cliente" as actor
+node cozinha
+database "Fogão" as fogao
+
+
+actor -> ga
+ga -> actor
+ga -> cozinha
+cozinha -> ga
+note top of cozinha: PF já está pronto
+cozinha <- chef
+chef -> fogao: prepara o prato
+
+
+@enduml

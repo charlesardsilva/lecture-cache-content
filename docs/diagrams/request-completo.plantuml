@@ -1,0 +1,24 @@
+@startuml
+
+skin rose
+
+Title Fluxo completo
+
+cloud CDN
+component "LB Front" as LBF
+component "LB Back" as LBB
+actor "Usuário" as actor
+database database
+interface "Browser" as browser
+node frontend
+node backend
+
+actor -> browser
+browser -> CDN
+CDN -> LBF
+LBF -> frontend
+frontend -> LBB
+LBB -> backend
+backend -> database
+
+@enduml

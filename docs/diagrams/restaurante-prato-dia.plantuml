@@ -1,0 +1,16 @@
+@startuml
+
+skin rose
+
+component "Garçom" as Ga
+actor "Cliente" as actor
+node cozinha
+
+
+actor -> Ga
+Ga -> actor
+Ga -> cozinha
+cozinha -> Ga
+note top of cozinha: PF já está pronto
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml
+
+skin rose
+
+Title: Fluxo com alguns componentes omitidos
+
+component "LB Front" as LBF
+component "LB Back" as LBB
+actor "Usuário" as actor
+database database
+interface "Browser" as browser
+node frontend
+node backend
+node outroBackend
+node outroBackend2 #red
+
+actor -> browser
+browser -> LBF
+LBF -> frontend
+frontend -> LBB
+LBB -> backend
+backend --> outroBackend
+backend --> outroBackend2 : Demora responder
+backend ..> database
+
+@enduml
