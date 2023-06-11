@@ -1,10 +1,12 @@
 package dev.charlesardsilva.lecturecachecontent.service;
 
 import dev.charlesardsilva.lecturecachecontent.gateway.StudentGateway;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 @Service
-public class StudentServiceNoCache {
+@Primary
+public class StudentServiceNoCache implements StudentService{
 
     private final StudentGateway studentGateway;
 

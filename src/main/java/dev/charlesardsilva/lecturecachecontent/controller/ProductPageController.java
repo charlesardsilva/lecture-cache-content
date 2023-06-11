@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductPageController {
 
     private final ProductPageService productPageService;
-
     public ProductPageController(@Qualifier("productPageServiceNoCache") ProductPageService productPageService) {
         this.productPageService = productPageService;
     }

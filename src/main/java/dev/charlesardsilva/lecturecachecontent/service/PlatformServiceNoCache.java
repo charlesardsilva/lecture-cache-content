@@ -1,10 +1,12 @@
 package dev.charlesardsilva.lecturecachecontent.service;
 
 import dev.charlesardsilva.lecturecachecontent.gateway.PlatformGateway;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 @Service
-class PlatformServiceNoCache {
+@Primary
+class PlatformServiceNoCache implements PlatformService {
 
     private final PlatformGateway platformGateway;
 

@@ -3,7 +3,7 @@ package dev.charlesardsilva.lecturecachecontent.service;
 import org.springframework.stereotype.Service;
 
 @Service
-class PlatformServiceWithCache {
+class PlatformServiceWithCache implements PlatformService{
 
     private final PlatformServiceNoCache platformServiceNoCache;
 

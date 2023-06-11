@@ -2,10 +2,12 @@ package dev.charlesardsilva.lecturecachecontent.service;
 
 import dev.charlesardsilva.lecturecachecontent.model.Product;
 import dev.charlesardsilva.lecturecachecontent.repository.ProductRepository;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 @Service
-class ProductServiceNoCache {
+@Primary
+class ProductServiceNoCache implements ProductService{
 
     private final ProductRepository productRepository;
 

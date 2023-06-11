@@ -2,10 +2,12 @@ package dev.charlesardsilva.lecturecachecontent.service;
 
 import dev.charlesardsilva.lecturecachecontent.model.Config;
 import dev.charlesardsilva.lecturecachecontent.repository.ConfigRepository;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 @Service
-class ConfigServiceNoCache {
+@Primary
+class ConfigServiceNoCache implements ConfigService {
 
     private final ConfigRepository configRepository;
 

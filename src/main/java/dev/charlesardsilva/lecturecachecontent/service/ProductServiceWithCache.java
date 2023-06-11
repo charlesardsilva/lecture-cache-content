@@ -4,7 +4,7 @@ import dev.charlesardsilva.lecturecachecontent.model.Product;
 import org.springframework.stereotype.Service;
 
 @Service
-class ProductServiceWithCache {
+class ProductServiceWithCache implements ProductService{
 
     private final ProductServiceNoCache productServiceNoCache;
 

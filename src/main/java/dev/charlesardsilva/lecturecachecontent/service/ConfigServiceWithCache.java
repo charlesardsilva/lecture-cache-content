@@ -4,7 +4,7 @@ import dev.charlesardsilva.lecturecachecontent.model.Config;
 import org.springframework.stereotype.Service;
 
 @Service
-class ConfigServiceWithCache {
+class ConfigServiceWithCache implements ConfigService{
 
     private final ConfigServiceNoCache configServiceNoCache;
 

@@ -3,7 +3,7 @@ package dev.charlesardsilva.lecturecachecontent.service;
 import org.springframework.stereotype.Service;
 
 @Service
-public class StudentServiceWithCache {
+public class StudentServiceWithCache implements StudentService {
 
     private final StudentServiceNoCache studentServiceNoCache;
 
