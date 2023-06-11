@@ -1,11 +1,11 @@
-package dev.charlesardsilva.lecturecachecontent.service;
+package dev.charlesardsilva.lecturecachecontent.service2.service;
 
 import dev.charlesardsilva.lecturecachecontent.model.Config;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
-class ConfigServiceWithCache implements ConfigService{
+class ConfigServiceWithCache implements ConfigService {
 
     private final ConfigServiceNoCache configServiceNoCache;
 

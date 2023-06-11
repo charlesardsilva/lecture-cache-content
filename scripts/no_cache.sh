@@ -1,0 +1,1 @@
+time curl -X GET localhost:8080/v1/page/products/abcd

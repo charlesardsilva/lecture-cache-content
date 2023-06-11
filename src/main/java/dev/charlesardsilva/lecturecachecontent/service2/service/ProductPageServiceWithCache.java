@@ -1,4 +1,4 @@
-package dev.charlesardsilva.lecturecachecontent.service;
+package dev.charlesardsilva.lecturecachecontent.service2.service;
 
 import dev.charlesardsilva.lecturecachecontent.controller.dto.PageResponse;
 import org.springframework.cache.annotation.Cacheable;

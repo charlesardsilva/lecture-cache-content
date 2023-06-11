@@ -1,10 +1,10 @@
-package dev.charlesardsilva.lecturecachecontent.service;
+package dev.charlesardsilva.lecturecachecontent.service2.service;
 
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
-class PlatformServiceWithCache implements PlatformService{
+class PlatformServiceWithCache implements PlatformService {
 
     private final PlatformServiceNoCache platformServiceNoCache;
 

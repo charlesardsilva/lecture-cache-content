@@ -1,0 +1,1 @@
+curl -X GET localhost:8080/v2/page/products/abcd

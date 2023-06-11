@@ -1,11 +1,11 @@
-package dev.charlesardsilva.lecturecachecontent.service;
+package dev.charlesardsilva.lecturecachecontent.service2.service;
 
 import dev.charlesardsilva.lecturecachecontent.model.Product;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
-class ProductServiceWithCache implements ProductService{
+class ProductServiceWithCache implements ProductService {
 
     private final ProductServiceNoCache productServiceNoCache;
 
