@@ -18,9 +18,9 @@ actor -> browser
 browser -> LBF
 LBF -> frontend
 frontend -> LBB
-LBB -> backend
-backend --> outroBackend
-backend --> outroBackend2 : Demora responder
-backend ..> database
+LBB -> backend : 500ms
+backend --> outroBackend: 100ms
+backend --> outroBackend2 : 300ms
+backend ..> database: 100ms
 
 @enduml

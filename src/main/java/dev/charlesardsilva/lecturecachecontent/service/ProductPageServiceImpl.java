@@ -1,13 +1,9 @@
-
-package dev.charlesardsilva.lecturecachecontent.service2.service;
+package dev.charlesardsilva.lecturecachecontent.service;
 
 import dev.charlesardsilva.lecturecachecontent.controller.dto.PageResponse;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Service;
 
-@Service
-@Primary
-public class ProductPageServiceNoCache implements ProductPageService {
+
+public class ProductPageServiceImpl {
 
     private static final String CHECKOUT_CONFIG = "showOtherProducts";
 
@@ -16,7 +12,7 @@ public class ProductPageServiceNoCache implements ProductPageService {
     private final StudentService studentService;
     private final PlatformService platformService;
 
-    public ProductPageServiceNoCache(ProductService productService, ConfigService configService,
+    public ProductPageServiceImpl(ProductService productService, ConfigService configService,
                                      StudentService studentService, PlatformService platformService) {
         this.productService = productService;
         this.configService = configService;
@@ -25,11 +21,14 @@ public class ProductPageServiceNoCache implements ProductPageService {
     }
 
     public PageResponse getPage(String ucode) {
-        var product = productService.byUcode(ucode);
-        var config = configService.byKey(CHECKOUT_CONFIG);
-        var amountOfStudents = studentService.amountOfStudents(product.id());
+        // Ignore the possibility of having parallelism.
+
+        var product = productService.byUcode(ucode); // Database
+        var config = configService.byKey(CHECKOUT_CONFIG); // Database
+        var amountOfStudents = studentService.amountOfStudents(product.id()); // course
         var active = platformService.status(product.id());
 
+        ...
 
         return null;
 
