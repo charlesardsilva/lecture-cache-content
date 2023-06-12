@@ -3,6 +3,7 @@ package dev.charlesardsilva.lecturecachecontent.service;
 
 import dev.charlesardsilva.lecturecachecontent.controller.dto.PageResponse;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ public class ProductPageServiceWithCache extends ProductPageServiceImpl implemen
         super(productService, configService, studentService, platformService);
     }
 
+    @Cacheable
     public PageResponse getPage(String ucode) {
         return super.getPage(ucode);
     }
