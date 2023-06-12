@@ -25,8 +25,8 @@ public class ProductPageServiceImpl {
 
         var product = productService.byUcode(ucode); // Database
         var config = configService.byKey(CHECKOUT_CONFIG); // Database
-        var amountOfStudents = studentService.amountOfStudents(product.id()); // course
-        var active = platformService.status(product.id());
+        var amountOfStudents = studentService.amountOfStudents(product.id()); // Gateway
+        var active = platformService.status(product.id()); // Gateway
 
         ...
 
