@@ -1,0 +1,26 @@
+@startuml
+
+skin rose
+
+Title: Com cache parcial
+
+component "LB Front" as LBF
+component "LB Back" as LBB
+actor "Usuário" as actor
+database database
+interface "Browser" as browser
+node frontend
+node backend
+node outroBackend as "PlatformGateway"
+node outroBackend2 as "StudentGateway" #red
+
+actor -> browser
+browser -> LBF
+LBF -> frontend
+frontend -> LBB
+LBB -> backend : 500 -> 210ms
+backend --> outroBackend: 100
+backend --> outroBackend2 : 300 -> 10ms
+backend ..> database: 100
+
+@enduml
