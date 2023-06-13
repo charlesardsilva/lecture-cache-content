@@ -10,14 +10,14 @@ public class ProductPageServiceImpl {
     private final ProductService productService;
     private final ConfigService configService;
     private final StudentService studentService;
-    private final PlatformService platformService;
+    private final ReviewService reviewService;
 
     public ProductPageServiceImpl(ProductService productService, ConfigService configService,
-                                     StudentService studentService, PlatformService platformService) {
+                                     StudentService studentService, ReviewService reviewService) {
         this.productService = productService;
         this.configService = configService;
         this.studentService = studentService;
-        this.platformService = platformService;
+        this.reviewService = reviewService;
     }
 
     public PageResponse getPage(String ucode) {
@@ -26,9 +26,10 @@ public class ProductPageServiceImpl {
         var product = productService.byUcode(ucode); // Database
         var config = configService.byKey(CHECKOUT_CONFIG); // Database
         var amountOfStudents = studentService.amountOfStudents(product.id()); // Gateway
-        var active = platformService.status(product.id()); // Gateway
+        var rating = reviewService.rating(product.id()); // Gateway
 
-        ...
+        // More code that can not be cached
+
 
         return null;
 
