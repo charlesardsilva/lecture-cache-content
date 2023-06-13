@@ -11,7 +11,7 @@ database database
 interface "Browser" as browser
 node frontend
 node backend
-node outroBackend as "PlatformGateway"
+node outroBackend as "ReviewGateway"
 node outroBackend2 as "StudentGateway" #red
 
 actor -> browser
