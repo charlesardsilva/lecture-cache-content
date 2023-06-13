@@ -11,16 +11,16 @@ database database
 interface "Browser" as browser
 node frontend
 node backend
-node outroBackend as "ReviewGateway"
-node outroBackend2 as "StudentGateway" #red
+node reviewGateway as "ReviewGateway"
+node studentGateway as "StudentGateway" #red
 
 actor -> browser
 browser -> LBF
 LBF -> frontend
 frontend -> LBB
 LBB -> backend : 500 -> 91ms
-backend --> outroBackend: 100 -> 10ms
-backend --> outroBackend2 : 300 -> 10ms
+backend --> reviewGateway: 100 -> 10ms
+backend --> studentGateway : 300 -> 10ms
 backend ..> database: 100 -> 71ms
 
 @enduml
