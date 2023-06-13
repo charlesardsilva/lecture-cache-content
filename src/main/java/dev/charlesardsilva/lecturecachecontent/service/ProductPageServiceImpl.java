@@ -24,9 +24,10 @@ public class ProductPageServiceImpl {
         // Ignore the possibility of having parallelism
 
         var product = productService.byUcode(ucode); // Database
-        var config = configService.byKey(CHECKOUT_CONFIG); // Database
         var amountOfStudents = studentService.amountOfStudents(product.id()); // External Service
         var rating = reviewService.rating(product.id());// External Service
+
+        var config = configService.byKey(CHECKOUT_CONFIG); // Database
 
         // More code that can not be cached
 
