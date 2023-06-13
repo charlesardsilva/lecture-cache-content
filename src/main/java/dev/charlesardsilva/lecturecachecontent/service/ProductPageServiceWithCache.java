@@ -14,8 +14,8 @@ public class ProductPageServiceWithCache extends ProductPageServiceImpl implemen
     public ProductPageServiceWithCache(@Qualifier("productServiceWithCache") ProductService productService,
                                        @Qualifier("configServiceWithCache") ConfigService configService,
                                        @Qualifier("studentServiceWithCache") StudentService studentService,
-                                       @Qualifier("platformServiceWithCache") PlatformService platformService) {
-        super(productService, configService, studentService, platformService);
+                                       @Qualifier("reviewServiceWithCache") ReviewService reviewService) {
+        super(productService, configService, studentService, reviewService);
     }
 
     @Cacheable
