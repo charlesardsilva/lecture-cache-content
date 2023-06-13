@@ -18,9 +18,11 @@ actor -> browser
 browser -> LBF
 LBF -> frontend
 frontend -> LBB
-LBB -> backend : 500ms
+LBB -> backend : 520ms
+note right of backend: +20ms outros processamentos
 backend --> reviewGateway: 100ms
 backend --> studentGateway : 300ms
-backend ..> database: 100ms
+backend ..> database: 70ms
+backend ..> database: 30ms
 
 @enduml
