@@ -15,16 +15,16 @@ component "Backend\n" {
 
   node "apiBackend" as backend
   node reviewGateway as reviewGateway
-  node studentGateway as studentGateway #red
+  node studentGateway as studentGateway
   database database
 
   backend --> database: 70ms
   backend --> database: 30ms
-  backend ..> reviewGateway: 100ms
-  backend ..> studentGateway: 300ms
+  backend --> reviewGateway: 100ms
+  backend --> studentGateway #red: 300ms
 }
 
-frontend -> backend: 520
-note right of backend: +20ms (Interno)
+frontend -> backend: 520ms
+note top of backend: +20ms (Interno)
 
 @enduml

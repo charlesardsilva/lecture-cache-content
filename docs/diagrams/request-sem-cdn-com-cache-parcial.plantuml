@@ -17,14 +17,16 @@ component "Backend\n" {
   node reviewGateway as reviewGateway
   node studentGateway as studentGateway #red
   database database
+  database redis as redis  #red
 
   backend --> database: 70ms
   backend --> database: 30ms
-  backend ..> reviewGateway: 100ms
-  backend ..> studentGateway: 10ms
+  backend --> reviewGateway: 100ms
+  backend --> studentGateway: 10ms
+  backend -> redis
 }
 
 frontend -> backend: 520 -> 230ms
-note right of backend: +20ms (Interno)
+note top of backend: +20ms (Interno)
 
 @enduml
