@@ -19,11 +19,11 @@ component "Backend\n" {
   database database
   database redis as redis  #red
 
+  backend -> redis: Existe?Armazena
   backend --> database: 10ms
   backend --> database: 1ms
   backend --> reviewGateway: 10ms
   backend --> studentGateway #red: 10ms
-  backend -> redis #red
 }
 
 frontend -> backend: 520 -> 51ms

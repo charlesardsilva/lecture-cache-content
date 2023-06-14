@@ -4,6 +4,7 @@ skin rose
 
 Title: Fluxo com alguns componentes omitidos
 
+
 actor "Usuário" as actor
 interface "Browser" as browser
 node frontend
@@ -19,11 +20,12 @@ component "Backend\n" {
   database database
   database redis as redis  #red
 
+  backend -> redis: Existe?Armazena
   backend --> database: 70ms
   backend --> database: 30ms
   backend --> reviewGateway: 100ms
   backend --> studentGateway: 10ms
-  backend -> redis
+
 }
 
 frontend -> backend: 520 -> 230ms
