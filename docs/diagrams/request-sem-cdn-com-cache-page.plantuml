@@ -1,0 +1,32 @@
+@startuml
+
+skin rose
+
+Title: Fluxo com alguns componentes omitidos
+
+actor "Usuário" as actor
+interface "Browser" as browser
+node frontend
+
+actor -> browser
+browser -> frontend
+
+component "Backend\n" {
+
+  node "apiBackend" as backend #aqua
+  node reviewGateway as reviewGateway
+  node studentGateway as studentGateway
+  database database
+  database redis as redis  #red
+
+  backend -> redis: Existe?Armazena
+  backend --> database: 0
+  backend --> database: 0
+  backend --> reviewGateway: 0
+  backend --> studentGateway: 0
+}
+
+frontend -> backend: 520 -> 10ms
+note top of backend: +20ms (Interno)
+
+@enduml
