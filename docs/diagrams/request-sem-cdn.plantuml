@@ -4,25 +4,27 @@ skin rose
 
 Title: Fluxo com alguns componentes omitidos
 
-component "LB Front" as LBF
-component "LB Back" as LBB
 actor "Usuário" as actor
-database database
 interface "Browser" as browser
 node frontend
-node backend
-node reviewGateway as "ReviewGateway"
-node studentGateway as "StudentGateway" #red
 
 actor -> browser
-browser -> LBF
-LBF -> frontend
-frontend -> LBB
-LBB -> backend : 520ms
-note right of backend: +20ms outros processamentos
-backend --> reviewGateway: 100ms
-backend --> studentGateway : 300ms
-backend ..> database: 70ms
-backend ..> database: 30ms
+browser -> frontend
+
+component "Backend\n" {
+
+  node "apiBackend" as backend
+  node reviewGateway as reviewGateway
+  node studentGateway as studentGateway #red
+  database database
+
+  backend --> database: 70ms
+  backend --> database: 30ms
+  backend ..> reviewGateway: 100ms
+  backend ..> studentGateway: 300ms
+}
+
+frontend -> backend: 520
+note right of backend: +20ms (Interno)
 
 @enduml
