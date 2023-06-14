@@ -2,7 +2,7 @@
 
 skin rose
 
-Title: Fluxo com alguns componentes omitidos
+Title: Sem cache
 
 actor "Usuário" as actor
 interface "Browser" as browser
@@ -13,20 +13,18 @@ browser -> frontend
 
 component "Backend\n" {
 
-  node "apiBackend" as backend #aqua
+  node "apiBackend" as backend
   node reviewGateway as reviewGateway
   node studentGateway as studentGateway
   database database
-  database redis as redis  #red
 
-  backend -> redis: Existe? (10ms)
-  backend --> database: 0
-  backend --> database: 0
-  backend --> reviewGateway: 0
-  backend --> studentGateway: 0
+  backend --> database: 70ms
+  backend --> database: 30ms
+  backend --> reviewGateway: 100ms
+  backend --> studentGateway: 300ms
 }
 
-frontend -> backend: 520 -> 30ms
+frontend -> backend: 520ms
 note top of backend: +20ms (Interno)
 
 @enduml

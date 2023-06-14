@@ -1,0 +1,47 @@
+@startuml
+
+skin rose
+
+Title: Grande lançamento (centenas/milhares de usuários)
+
+node frontend
+
+component "Backend\n" {
+
+  node "apiBackend" as backend #aqua
+  node reviewGateway as reviewGateway
+  node studentGateway as studentGateway
+  database database
+  database redis as redis  #red
+
+  backend -> redis
+  backend -> redis
+  backend -> redis
+  backend -> redis
+  backend -> redis
+  backend -> redis
+  backend -> redis
+
+  backend --> database: 0
+  backend --> database: 0
+  backend --> reviewGateway: 0
+  backend --> studentGateway #red: 0
+
+  note left of backend: Todos acessando o mesmo conteúdo
+}
+
+frontend --> backend
+frontend --> backend
+frontend --> backend
+frontend --> backend
+frontend --> backend
+frontend --> backend
+frontend --> backend
+
+
+
+
+
+
+
+@enduml

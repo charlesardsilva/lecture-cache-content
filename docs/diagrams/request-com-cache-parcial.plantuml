@@ -2,7 +2,8 @@
 
 skin rose
 
-Title: Fluxo com alguns componentes omitidos
+Title: Cache apenas do gateway mais lento
+
 
 actor "Usuário" as actor
 interface "Browser" as browser
@@ -14,19 +15,20 @@ browser -> frontend
 component "Backend\n" {
 
   node "apiBackend" as backend
-  node reviewGateway as reviewGateway #aqua
+  node reviewGateway as reviewGateway
   node studentGateway as studentGateway #aqua
-  database database #aqua
+  database database
   database redis as redis  #red
 
   backend -> redis: Existe?Armazena
-  backend --> database: 10ms
-  backend --> database: 1ms
-  backend --> reviewGateway: 10ms
-  backend --> studentGateway: 10ms
+  backend --> database: 70ms
+  backend --> database: 30ms
+  backend --> reviewGateway: 100ms
+  backend --> studentGateway #red: 10ms
+
 }
 
-frontend -> backend: 520 -> 51ms
+frontend -> backend: 520 -> 230ms
 note top of backend: +20ms (Interno)
 
 @enduml
