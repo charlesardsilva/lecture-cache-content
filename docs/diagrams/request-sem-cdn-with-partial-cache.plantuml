@@ -20,8 +20,8 @@ component "Backend\n" {
 
   backend --> database: 70ms
   backend --> database: 30ms
-  backend ..> reviewGateway: 10ms
-  backend ..> studentGateway: 100ms
+  backend ..> reviewGateway: 100ms
+  backend ..> studentGateway: 10ms
 }
 
 frontend -> backend: 520 -> 230ms
