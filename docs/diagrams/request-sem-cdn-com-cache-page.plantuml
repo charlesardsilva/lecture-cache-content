@@ -19,14 +19,14 @@ component "Backend\n" {
   database database
   database redis as redis  #red
 
-  backend -> redis: Existe?Armazena
+  backend -> redis: Existe? (10ms)
   backend --> database: 0
   backend --> database: 0
   backend --> reviewGateway: 0
   backend --> studentGateway: 0
 }
 
-frontend -> backend: 520 -> 10ms
+frontend -> backend: 520 -> 30ms
 note top of backend: +20ms (Interno)
 
 @enduml
