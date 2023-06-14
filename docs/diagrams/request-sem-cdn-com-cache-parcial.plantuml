@@ -16,7 +16,7 @@ component "Backend\n" {
 
   node "apiBackend" as backend
   node reviewGateway as reviewGateway
-  node studentGateway as studentGateway #red
+  node studentGateway as studentGateway
   database database
   database redis as redis  #red
 
@@ -24,7 +24,7 @@ component "Backend\n" {
   backend --> database: 70ms
   backend --> database: 30ms
   backend --> reviewGateway: 100ms
-  backend --> studentGateway: 10ms
+  backend --> studentGateway #red: 10ms
 
 }
 
