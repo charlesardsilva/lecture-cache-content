@@ -16,7 +16,7 @@ component "Backend\n" {
 
   node "apiBackend" as backend
   node reviewGateway as reviewGateway
-  node studentGateway as studentGateway
+  node studentGateway as studentGateway #aqua
   database database
   database redis as redis  #red
 
