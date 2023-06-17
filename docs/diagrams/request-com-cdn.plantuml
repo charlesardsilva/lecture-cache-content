@@ -7,27 +7,27 @@ Title: Usando CDN: Content Delivery Network (ou Rede de Distribuição de Conte�
 actor "Usuário" as actor
 interface "Browser" as browser
 node CDN as cdn #yellow
-node frontend
 
 actor -> browser
 browser -> cdn
 
-
 component "Backend\n" {
 
-  node "apiBackend" as backend
+  node SSR
+  node "api" as backend
   node reviewGateway as reviewGateway
   node studentGateway as studentGateway
   database database
 
+  cdn -> SSR: 0
+  SSR -> backend: 0
   backend --> database
   backend --> database
   backend --> reviewGateway
   backend --> studentGateway
 }
 
-cdn -> frontend: 0
 note bottom of cdn: Cache na ponta, evita todo o fluxo.
-frontend -> backend: 0
+
 
 @enduml

@@ -7,19 +7,18 @@ Title: Cache apenas do gateway mais lento
 
 actor "Usuário" as actor
 interface "Browser" as browser
-node frontend
-
-actor -> browser
-browser -> frontend
 
 component "Backend\n" {
 
-  node "apiBackend" as backend
+  node SSR
+  node "api" as backend
   node reviewGateway as reviewGateway
   node studentGateway as studentGateway #aqua
   database database
   database redis as redis  #red
 
+  actor -> browser
+  browser -> SSR
   backend -> redis: Existe?Armazena
   backend --> database: 70ms
   backend --> database: 30ms
@@ -28,7 +27,7 @@ component "Backend\n" {
 
 }
 
-frontend -> backend: 520 -> 230ms
+SSR -> backend: 520 -> 230ms
 note top of backend: +20ms (Interno)
 
 @enduml

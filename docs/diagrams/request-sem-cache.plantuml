@@ -6,25 +6,27 @@ Title: Sem cache
 
 actor "Usuário" as actor
 interface "Browser" as browser
-node frontend
+
 
 actor -> browser
-browser -> frontend
+
 
 component "Backend\n" {
 
-  node "apiBackend" as backend
+  node SSR
+  node "api" as backend
   node reviewGateway as reviewGateway
   node studentGateway as studentGateway
   database database
 
+  browser -> SSR
   backend --> database: 70ms
   backend --> database: 30ms
   backend --> reviewGateway: 100ms
   backend --> studentGateway: 300ms
 }
 
-frontend -> backend: 520ms
+SSR -> backend: 520ms
 note top of backend: +20ms (Interno)
 
 @enduml

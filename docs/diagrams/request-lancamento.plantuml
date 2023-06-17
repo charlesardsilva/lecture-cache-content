@@ -4,15 +4,24 @@ skin rose
 
 Title: Grande lançamento (centenas/milhares de usuários)
 
-node frontend
+interface "Browser" as browser
 
 component "Backend\n" {
 
-  node "apiBackend" as backend #aqua
+  node SSR
+  node "api" as backend #aqua
   node reviewGateway as reviewGateway
   node studentGateway as studentGateway
   database database
   database redis as redis  #red
+
+    SSR --> backend
+    SSR --> backend
+    SSR --> backend
+    SSR --> backend
+    SSR --> backend
+    SSR --> backend
+    SSR --> backend
 
   backend -> redis
   backend -> redis
@@ -30,13 +39,17 @@ component "Backend\n" {
   note left of backend: Todos acessando o mesmo conteúdo
 }
 
-frontend --> backend
-frontend --> backend
-frontend --> backend
-frontend --> backend
-frontend --> backend
-frontend --> backend
-frontend --> backend
+rectangle "Browsers\n" {
+    (b1) --> SSR
+    (b2) --> SSR
+    (b3) --> SSR
+    (b4) --> SSR
+    (b5) --> SSR
+    (b6) --> SSR
+    (b7) --> SSR
+}
+
+
 
 
 
