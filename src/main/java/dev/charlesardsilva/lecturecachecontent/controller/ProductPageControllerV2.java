@@ -18,8 +18,8 @@ public class ProductPageControllerV2 {
         this.productPageService = productPageService;
     }
 
-    @GetMapping("/{ucode}")
-    public PageResponse getByUcode(@PathVariable("ucode") String ucode) {
-        return productPageService.getPage(ucode);
+    @GetMapping("/{id}")
+    public PageResponse getByUcode(@PathVariable("id") String id) {
+        return productPageService.getPage(id);
     }
 }

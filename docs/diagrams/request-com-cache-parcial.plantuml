@@ -17,17 +17,26 @@ component "Backend\n" {
   database database
   database redis as redis  #red
 
+
   actor -> browser
   browser -> SSR
-  backend -> redis: Existe?Armazena
-  backend --> database: 70ms
-  backend --> database: 30ms
-  backend --> reviewGateway: 100ms
-  backend --> studentGateway #red: 10ms
+  backend --> redis
+  backend --> redis
+  backend --> redis
+  backend --> redis
+
+  note left of redis
+   studentGateway  : 300 -> 2ms
+  end note
+
+  redis --> database: 70ms
+  redis --> database: 30ms
+  redis --> reviewGateway: 100ms
+  redis ..> studentGateway #red: X
 
 }
 
-SSR -> backend: 520 -> 230ms
-note top of backend: +20ms (Interno)
+SSR -> backend: 520 -> 222ms
+note right of backend: +20ms (Interno)
 
 @enduml

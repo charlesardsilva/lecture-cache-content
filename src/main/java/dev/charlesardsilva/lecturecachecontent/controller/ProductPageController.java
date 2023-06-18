@@ -16,8 +16,8 @@ public class ProductPageController {
     public ProductPageController(@Qualifier("productPageServiceNoCache") ProductPageService productPageService) {
         this.productPageService = productPageService;
     }
-    @GetMapping("/{ucode}")
-    public PageResponse getByUcode(@PathVariable("ucode") String ucode) {
-      return productPageService.getPage(ucode);
+    @GetMapping("/{id}")
+    public PageResponse getByUcode(@PathVariable("id") String id) {
+      return productPageService.getPage(id);
     }
 }

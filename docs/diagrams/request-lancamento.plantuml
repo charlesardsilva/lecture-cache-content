@@ -4,8 +4,6 @@ skin rose
 
 Title: Grande lançamento (centenas/milhares de usuários)
 
-interface "Browser" as browser
-
 component "Backend\n" {
 
   node SSR
@@ -15,28 +13,26 @@ component "Backend\n" {
   database database
   database redis as redis  #red
 
-    SSR --> backend
-    SSR --> backend
-    SSR --> backend
-    SSR --> backend
-    SSR --> backend
-    SSR --> backend
-    SSR --> backend
+    SSR -> backend
+    note left of SSR: Acesso ao mesmo produto
+    SSR -> backend
+    SSR -> backend
+    SSR -> backend
+    SSR -> backend
 
-  backend -> redis
-  backend -> redis
-  backend -> redis
-  backend -> redis
-  backend -> redis
-  backend -> redis
-  backend -> redis
+  backend --> redis
+  backend --> redis
+  backend --> redis
+  backend --> redis
+  backend --> redis
 
-  backend --> database: 0
-  backend --> database: 0
-  backend --> reviewGateway: 0
-  backend --> studentGateway #red: 0
 
-  note left of backend: Todos acessando o mesmo conteúdo
+  redis ..> database: X
+  redis ..> database: X
+  redis ..> reviewGateway: X
+  redis ..> studentGateway #red: X
+
+  note left of redis: Resposta do cache: 2ms
 }
 
 rectangle "Browsers\n" {
@@ -46,15 +42,7 @@ rectangle "Browsers\n" {
     (b4) --> SSR
     (b5) --> SSR
     (b6) --> SSR
-    (b7) --> SSR
+    (bN) --> SSR
 }
-
-
-
-
-
-
-
-
 
 @enduml

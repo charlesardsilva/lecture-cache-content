@@ -13,7 +13,7 @@ class ReviewServiceWithCache implements ReviewService{
     }
 
     @Cacheable
-    public int rating(long productId) {
-        return reviewServiceNoCache.rating(productId);
+    public int rating(String id) {
+        return reviewServiceNoCache.rating(id);
     }
 }

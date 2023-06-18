@@ -19,14 +19,17 @@ component "Backend\n" {
 
   actor -> browser
   browser -> SSR
-  backend -> redis: Existe? (10ms)
-  backend --> database: 0
-  backend --> database: 0
-  backend --> reviewGateway: 0
-  backend --> studentGateway: 0
+
+
+  backend -> redis: 2ms
+
+  backend ..> database: X
+  backend ..> database: X
+  backend ..> reviewGateway: X
+  backend ..> studentGateway: X
 }
 
-SSR -> backend: 520 -> 30ms
+SSR -> backend: 520 -> 22ms
 note top of backend: +20ms (Interno)
 
 @enduml

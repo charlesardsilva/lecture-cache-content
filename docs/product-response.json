@@ -1,6 +1,5 @@
 {
-  "ucode": "abcd",
-  "productId": 123456,
+  "id": "abcd",
   "copy": "Usar cache em aplicações WEB facilita ...",
   "photo": "https://abc.jpg",
   "slug": "a-importancia-de-usar-cache-em-aplicacoes",

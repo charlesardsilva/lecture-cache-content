@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+...
+spec:
+  template:
+    spec:
+      containers:
+        - name: application
+          image: my/application
+        - name: hazelcast
+          image: hazelcast/hazelcast
+

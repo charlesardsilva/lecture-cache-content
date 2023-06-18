@@ -20,10 +20,10 @@ public class ProductPageServiceImpl {
         this.reviewService = reviewService;
     }
 
-    public PageResponse getPage(String ucode) {
+    public PageResponse getPage(String id) {
         // Ignore the possibility of having parallelism
 
-        var product = productService.byUcode(ucode); // Database
+        var product = productService.byUcode(id); // Database
         var amountOfStudents = studentService.amountOfStudents(product.id()); // External Service
         var rating = reviewService.rating(product.id());// External Service
 

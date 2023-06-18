@@ -8,12 +8,12 @@ import java.util.concurrent.TimeUnit;
 @Repository
 public class ProductRepository {
 
-    public Product findByUcode(String ucode) {
+    public Product findByUcode(String id) {
         try {
             TimeUnit.MILLISECONDS.sleep(300);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        return new Product(ucode, 123456, true);
+        return new Product(id, true);
     }
 }

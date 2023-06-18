@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class ReviewGateway {
 
-    public int rating(long productId) {
+    public int rating(String productId) {
         try {
             TimeUnit.MILLISECONDS.sleep(300);
         } catch (InterruptedException e) {

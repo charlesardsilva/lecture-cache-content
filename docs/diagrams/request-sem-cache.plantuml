@@ -24,9 +24,10 @@ component "Backend\n" {
   backend --> database: 30ms
   backend --> reviewGateway: 100ms
   backend --> studentGateway: 300ms
+
 }
 
 SSR -> backend: 520ms
-note top of backend: +20ms (Interno)
+note right of backend: +20ms (Interno)
 
 @enduml

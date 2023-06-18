@@ -14,7 +14,7 @@ public class ProductPageServiceNoCache extends ProductPageServiceImpl implements
         super(productService, configService, studentService, platformService);
     }
 
-    public PageResponse getPage(String ucode) {
-        return super.getPage(ucode);
+    public PageResponse getPage(String id) {
+        return super.getPage(id);
     }
 }

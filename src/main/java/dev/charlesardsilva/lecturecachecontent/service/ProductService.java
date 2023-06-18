@@ -4,5 +4,5 @@ import dev.charlesardsilva.lecturecachecontent.model.Product;
 
 public interface ProductService {
 
-    Product byUcode(String ucode);
+    Product byUcode(String id);
 }

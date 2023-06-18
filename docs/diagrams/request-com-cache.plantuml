@@ -7,8 +7,7 @@ Title: Cache dos componentes envolvidos
 actor "Usuário" as actor
 interface "Browser" as browser
 
-component "Backend\n" {
-
+component "Backend\n\n" {
   
   node SSR
   node "api" as backend
@@ -19,14 +18,26 @@ component "Backend\n" {
 
   actor -> browser
   browser -> SSR
-  backend -> redis: Existe?Armazena
-  backend --> database: 1ms
-  backend --> database: 0ms ()
-  backend --> reviewGateway: 10ms
-  backend --> studentGateway: 10ms
+  backend --> redis
+  backend --> redis
+  backend --> redis
+  backend --> redis
+
+  note left of redis
+    reviewGateway   : 100 -> 2ms
+
+    studentGateway  : 100 -> 2ms
+
+    database        : 100 -> 2ms
+  end note
+
+  redis ..> database: X
+  redis ..> database: X
+  redis ..> reviewGateway: X
+  redis ..> studentGateway: X
 }
 
-SSR -> backend: 520 -> 51ms
-note top of backend: +20ms (Interno)
+SSR -> backend: 520 -> 26ms
+note right of backend: +20ms (Interno)
 
 @enduml

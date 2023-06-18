@@ -19,15 +19,14 @@ component "Backend\n" {
   node studentGateway as studentGateway
   database database
 
-  cdn -> SSR: 0
-  SSR -> backend: 0
-  backend --> database
-  backend --> database
-  backend --> reviewGateway
-  backend --> studentGateway
+  cdn -> SSR: X
+  SSR -> backend: X
+  backend ..> database: X
+  backend ..> database: X
+  backend ..> reviewGateway: X
+  backend ..> studentGateway: X
 }
 
 note bottom of cdn: Cache na ponta, evita todo o fluxo.
-
 
 @enduml
