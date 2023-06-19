@@ -2,7 +2,7 @@
 
 skin rose
 
-Title: Sem cache
+Title: Sem cache (outros componentes de infra estão omitidos)
 
 actor "Usuário" as actor
 interface "Browser" as browser
@@ -20,6 +20,7 @@ component "Backend\n" {
   database database
 
   browser -> SSR
+  note bottom of SSR: Server Side Rendering
   backend --> database: 70ms
   backend --> database: 30ms
   backend --> reviewGateway: 100ms

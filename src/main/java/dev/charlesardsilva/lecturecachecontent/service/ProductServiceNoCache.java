@@ -15,7 +15,7 @@ class ProductServiceNoCache implements ProductService{
         this.productRepository = productRepository;
     }
 
-    public Product byUcode(String id) {
+    public Product byId(String id) {
         return productRepository.findByUcode(id);
     }
 }

@@ -23,11 +23,13 @@ public class ProductPageServiceImpl {
     public PageResponse getPage(String id) {
         // Ignore the possibility of having parallelism
 
-        var product = productService.byUcode(id); // Database
-        var amountOfStudents = studentService.amountOfStudents(product.id()); // External Service
-        var rating = reviewService.rating(product.id());// External Service
-
         var config = configService.byKey(CHECKOUT_CONFIG); // Database
+
+        var product = productService.byId(id); // Database
+
+        var amountOfStudents = studentService.amountOfStudents(product.id()); // External Service
+
+        var rating = reviewService.rating(product.id()); // External Service
 
         // More code that can not be cached
 

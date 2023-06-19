@@ -11,6 +11,6 @@ actor -> Ga
 Ga -> actor
 Ga -> cozinha
 cozinha -> Ga
-note top of cozinha: PF já está pronto
+note top of cozinha: Prato do Dia já está pronto.
 
 @enduml

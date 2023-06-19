@@ -13,9 +13,9 @@ actor -> ga
 ga -> actor
 ga -> cozinha
 cozinha -> ga
-note top of cozinha: PF já está pronto
+note top of cozinha: Prato customizado não está pronto.
 cozinha <- chef
-chef -> fogao: prepara o prato
+chef ..> fogao: prepara o prato
 
 
 @enduml

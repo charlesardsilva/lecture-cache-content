@@ -2,7 +2,7 @@
 
 skin rose
 
-Title: Cache apenas do gateway mais lento
+Title: Cache parcial
 
 
 actor "Usuário" as actor
@@ -12,7 +12,7 @@ component "Backend\n" {
 
   node SSR
   node "api" as backend
-  node reviewGateway as reviewGateway
+  node reviewGateway as reviewGateway #aqua
   node studentGateway as studentGateway #aqua
   database database
   database redis as redis  #red
@@ -26,17 +26,28 @@ component "Backend\n" {
   backend --> redis
 
   note left of redis
-   studentGateway  : 300 -> 2ms
+   reviewGateway  : 100 -> 2ms
+
+   studentGateway : 300 -> 2ms
   end note
 
+  redis ..> reviewGateway: X
+  redis ..> studentGateway #red: X
   redis --> database: 70ms
   redis --> database: 30ms
-  redis --> reviewGateway: 100ms
-  redis ..> studentGateway #red: X
+
+  note left of database
+     Para ganhar ese tempo
+     no database seria interessante
+     usar um evict de trigger.
+    end note
+
+
+
 
 }
 
-SSR -> backend: 520 -> 222ms
+SSR -> backend: 520 -> 124ms
 note right of backend: +20ms (Interno)
 
 @enduml

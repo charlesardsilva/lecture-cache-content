@@ -13,7 +13,7 @@ public class StudentServiceWithCache implements StudentService {
     }
 
     @Cacheable
-    public int amountOfStudents(long productId) {
+    public int amountOfStudents(String productId) {
         return studentServiceNoCache.amountOfStudents(productId);
     }
 }

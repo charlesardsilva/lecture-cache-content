@@ -14,7 +14,7 @@ class ProductServiceWithCache implements ProductService{
     }
 
     @Cacheable
-    public Product byUcode(String id) {
-        return productServiceNoCache.byUcode(id);
+    public Product byId(String id) {
+        return productServiceNoCache.byId(id);
     }
 }

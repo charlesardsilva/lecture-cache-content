@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 public class ProductPageServiceNoCache extends ProductPageServiceImpl implements ProductPageService {
 
     public ProductPageServiceNoCache(ProductService productService, ConfigService configService,
-                                     StudentService studentService, PlatformService platformService) {
-        super(productService, configService, studentService, platformService);
+                                     StudentService studentService, ReviewService reviewService) {
+        super(productService, configService, studentService, reviewService);
     }
 
     public PageResponse getPage(String id) {
