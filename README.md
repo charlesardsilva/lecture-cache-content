@@ -42,6 +42,8 @@ O objetivo das chaves aleatórias é simular chaves que estarão ou não no cach
 
 No final do de cada request, e do fim de todos os requests, tem o tempo gasto da operação.
 
+Quanto mais vezes rodar a versão som cache, maior a tendência de preencher o cache com todas as chaves.
+
 **Atenção:** O ideal para o teste seria executar isso de forma paralela, não sequencial como está no exemplo.
 Para não colocar nenhuma ferramenta de teste de carga, utilizei request sequencial.
 
