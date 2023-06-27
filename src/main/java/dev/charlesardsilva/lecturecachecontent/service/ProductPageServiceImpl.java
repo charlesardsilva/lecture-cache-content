@@ -5,7 +5,7 @@ import dev.charlesardsilva.lecturecachecontent.controller.dto.PageResponse;
 
 public class ProductPageServiceImpl {
 
-    private static final String CHECKOUT_CONFIG = "showOtherProducts";
+    private static final String CHECKOUT_CONFIG = "checkout_enabled";
 
     private final ProductService productService;
     private final ConfigService configService;
@@ -33,8 +33,8 @@ public class ProductPageServiceImpl {
 
         // More code that can not be cached
 
-
-        return null;
+        return new PageResponse(id,product.copy(),
+        product.photo(), product.slug(), amountOfStudents, rating, Boolean.parseBoolean(config.value().toString()));
 
     }
 }

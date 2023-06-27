@@ -19,13 +19,13 @@ component "Backend\n" {
     SSR -> backend
     SSR -> backend
     SSR -> backend
+    note right of backend: Cache na borda da api
 
   backend --> redis
   backend --> redis
   backend --> redis
   backend --> redis
   backend --> redis
-
 
   redis ..> database: X
   redis ..> database: X

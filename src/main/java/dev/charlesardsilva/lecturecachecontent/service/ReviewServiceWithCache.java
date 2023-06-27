@@ -12,8 +12,8 @@ class ReviewServiceWithCache implements ReviewService{
         this.reviewServiceNoCache = reviewServiceNoCache;
     }
 
-    @Cacheable
-    public int rating(String id) {
+    @Cacheable("reviews")
+    public double rating(String id) {
         return reviewServiceNoCache.rating(id);
     }
 }

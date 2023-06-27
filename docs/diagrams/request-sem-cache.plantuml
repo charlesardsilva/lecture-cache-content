@@ -23,7 +23,6 @@ component "Backend\n" {
   note bottom of SSR: Server Side Rendering
   backend --> database: 70ms
   backend --> database: 30ms
-  backend --> reviewGateway: 100ms
   backend --> studentGateway: 300ms
 
 }

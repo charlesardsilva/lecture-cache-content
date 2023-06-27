@@ -10,11 +10,11 @@ public class ConfigRepository {
 
     public Config findByKey(String key) {
         try {
-            TimeUnit.MILLISECONDS.sleep(100);
+            TimeUnit.MILLISECONDS.sleep(30);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
-        return new Config("showOtherProducts", false);
+        return new Config("checkout_enabled", true);
     }
 }

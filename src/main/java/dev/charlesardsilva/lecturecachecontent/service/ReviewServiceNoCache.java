@@ -14,7 +14,7 @@ class ReviewServiceNoCache implements ReviewService {
         this.reviewGateway = reviewGateway;
     }
 
-    public int rating(String id) {
+    public double rating(String id) {
         return reviewGateway.rating(id);
     }
 }

@@ -18,7 +18,7 @@ public class ProductPageServiceWithCache extends ProductPageServiceImpl implemen
         super(productService, configService, studentService, reviewService);
     }
 
-    @Cacheable
+    @Cacheable("pages")
     public PageResponse getPage(String id) {
         return super.getPage(id);
     }

@@ -1,9 +1,11 @@
 package dev.charlesardsilva.lecturecachecontent.controller.dto;
 
-public record PageResponse(String ucode,
+public record PageResponse(String id,
                            String copy,
                            String photo,
                            String slug,
                            int students,
-                           boolean active) {
+                           double rating,
+                           boolean checkoutEnabled) {
+
 }

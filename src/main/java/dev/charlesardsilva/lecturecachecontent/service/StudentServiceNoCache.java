@@ -14,7 +14,7 @@ public class StudentServiceNoCache implements StudentService{
         this.studentGateway = studentGateway;
     }
 
-    public int amountOfStudents(long productId) {
+    public int amountOfStudents(String productId) {
         return studentGateway.amountOfStudents(productId);
     }
 }

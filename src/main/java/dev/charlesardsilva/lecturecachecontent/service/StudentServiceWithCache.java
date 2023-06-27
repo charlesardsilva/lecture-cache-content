@@ -12,7 +12,7 @@ public class StudentServiceWithCache implements StudentService {
         this.studentServiceNoCache = studentServiceNoCache;
     }
 
-    @Cacheable
+    @Cacheable("students")
     public int amountOfStudents(String productId) {
         return studentServiceNoCache.amountOfStudents(productId);
     }

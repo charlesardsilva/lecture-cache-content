@@ -13,7 +13,7 @@ class ConfigServiceWithCache implements ConfigService{
         this.configServiceNoCache = configServiceNoCache;
     }
 
-    @Cacheable
+    @Cacheable("configs")
     public Config byKey(String key) {
         return configServiceNoCache.byKey(key);
     }

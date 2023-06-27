@@ -13,7 +13,7 @@ class ProductServiceWithCache implements ProductService{
         this.productServiceNoCache = productServiceNoCache;
     }
 
-    @Cacheable
+    @Cacheable("products")
     public Product byId(String id) {
         return productServiceNoCache.byId(id);
     }
